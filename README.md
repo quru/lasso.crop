@@ -60,3 +60,12 @@ Documentation
 * start - Event fired when lasso begins
 * resize - Event fired during every mousemove while the lasso is active. Provides `{ x, y, w, h }`. If `contain` is set, positions are relative to the container element
 * complete - Event fired on mouseup. Provides `{ x, y, w, h }`. If `contain` is set, positions are relative to the container element
+
+### Things to note
+
+* You can click anywhere outside of the crop area to start a new crop
+* If the handlers disappear then the crop is invalid (too small)
+* If min and max are the same the lasso handles are removed
+* N,S,E,W handles are removed for ratio constraints
+* Marching ants lasso border requires a single 8×8 image (see `crop.gif`). Default border is `1px dashed #999`
+* Preset option was added to help with usability, visual clue to communicate that you can crop
