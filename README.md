@@ -43,7 +43,7 @@ Documentation
 * min - `[w,h] / false` - sets the minimum lasso width and height, default `false`
 * max - `[w,h] / false` - sets the maximum lasso width and height, default `false`
 * ratio - `[16,9] / false` - sets a lasso aspect ratio constraint, default `false`
-* preset - [x,y,w,h] - initial lasso size, default `false`
+* preset - `[x,y,w,h]` - initial lasso size, default `false`
 * contain - `true / false` - if set lasso will be contained within the image, default `true`
 * border - hex color or image path - sets the border of the lasso, default `#999`
 * color - masking color, default `#7389AE`
