@@ -115,10 +115,12 @@ var Lasso = new Class({
 		if((!this.options.autoHide && event.target == this.box) || (!this.options.globalTrigger && (this.trigger != event.target))) return false;
 		if (this.isTouch) event.stop();
 		this.active = true;
-		if (this.isTouch)
+		if (this.isTouch) {
 			document.addEvents({'touchmove': this.binds.move, 'touchend': this.binds.end});
-		else
+		}
+		else {
 			document.addEvents({'mousemove': this.binds.move, 'mouseup': this.binds.end});
+		}
 		this.resetCoords();
 		if(this.options.contain) this.getContainCoords();
 		if(this.container) this.getRelativeOffset();
@@ -191,10 +193,12 @@ var Lasso = new Class({
 	end : function(event){
 		if(!this.active) return false;
 		this.active = false;
-		if (this.isTouch)
-			document.removeEvents({'touchmove': this.binds.move, 'touchend': this.binds.end});
-		else
-			document.removeEvents({'mousemove': this.binds.move, 'mouseup': this.binds.end});
+		if (this.isTouch) {
+			document.removeEvents({'touchmove': this.binds.move, 'touchend': this.binds.end});			
+		}
+		else {
+			document.removeEvents({'mousemove': this.binds.move, 'mouseup': this.binds.end});			
+		}
 		if(this.options.autoHide) this.resetCoords();
 		else if(this.options.min){
 			if(this.coords.w < this.options.min[0] || this.coords.h < this.options.min[1]) this.resetCoords();
@@ -337,10 +341,12 @@ Lasso.Crop = new Class({
 	handleStart : function(event,handle,row,col){
 		if (this.isTouch) event.stop();
 		this.currentHandle = { 'handle' : handle, 'row' : row, 'col' : col}; // important! used for easy matrix transforms.
-		if (this.isTouch)
-			document.addEvents({'touchmove': this.binds.handleMove, 'touchend': this.binds.handleEnd});
-		else
-			document.addEvents({'mousemove': this.binds.handleMove, 'mouseup': this.binds.handleEnd});
+		if (this.isTouch) {
+			document.addEvents({'touchmove': this.binds.handleMove, 'touchend': this.binds.handleEnd});			
+		}
+		else {
+			document.addEvents({'mousemove': this.binds.handleMove, 'mouseup': this.binds.handleEnd});			
+		}
 		// had to merge because we don't want to effect the class instance of box. we want to record it
 		event.page.y -= this.offset.top; event.page.x -= this.offset.left;
 		this.coords.hs = { 's' : event.page, 'b' : Object.clone(this.coords.box) }; // handler start (used for 'DRAG')
@@ -386,10 +392,12 @@ Lasso.Crop = new Class({
 	},
 	
 	handleEnd : function(event){
-		if (this.isTouch)
-			document.removeEvents({'touchmove': this.binds.handleMove, 'touchend': this.binds.handleEnd});
-		else
-			document.removeEvents({'mousemove': this.binds.handleMove, 'mouseup': this.binds.handleEnd});
+		if (this.isTouch) {
+			document.removeEvents({'touchmove': this.binds.handleMove, 'touchend': this.binds.handleEnd});			
+		}
+		else {
+			document.removeEvents({'mousemove': this.binds.handleMove, 'mouseup': this.binds.handleEnd});			
+		}
 		this.end(event);
 		this.active = false;
 		this.currentHandle = false;
