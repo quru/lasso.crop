@@ -48,7 +48,7 @@ Documentation
 * border - hex color or image path - sets the border of the lasso, default `#999`
 * color - masking color, default `#7389AE`
 * opacity - opacity of mask, default `0.3`
-* zindex - used to make sure lasso is above all elements, default `10000`
+* zindex - used to make sure lasso is above all elements, default `100`
 * handleSize - size of lasso handles, default `8`
 * handleStyle - css styles for the lasso handles, see code for defaults
 

@@ -36,7 +36,7 @@ var Lasso = new Class({
 		border : '#999',
 		color : '#7389AE',
 		opacity : .3,
-		zindex : 10000
+		zindex : 100
 	},
 	
 	binds : {},
@@ -48,7 +48,7 @@ var Lasso = new Class({
 		this.isTouch = (('ontouchstart' in window) && window.Touch);
 		
 		this.box = new Element('div', { 
-			'styles' : { 'display' : 'none', 'position' : 'absolute',  'z-index' : this.options.zindex } 
+			'styles' : { 'display' : 'none', 'position' : 'absolute',  'z-index' : this.options.zindex }
 		}).inject((this.container) ? this.container : document.body);
 		
 		this.overlay = new Element('div',{
@@ -396,7 +396,7 @@ Lasso.Crop = new Class({
 			document.removeEvents({'touchmove': this.binds.handleMove, 'touchend': this.binds.handleEnd});			
 		}
 		else {
-			document.removeEvents({'mousemove': this.binds.handleMove, 'mouseup': this.binds.handleEnd});			
+			document.removeEvents({'mousemove': this.binds.handleMove, 'mouseup': this.binds.handleEnd});
 		}
 		this.end(event);
 		this.active = false;
