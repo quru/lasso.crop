@@ -93,11 +93,16 @@ var Lasso = new Class({
 
 		this.attach();
 
-		document.body.onselectstart = function(e){ e = new Event(e).stop(); return false; };
-
-		// better alternative?
-		this.removeDOMSelection = (document.selection && document.selection.empty) ? function(){ document.selection.empty(); } : 
-			(window.getSelection) ? function(){ var s=window.getSelection();if(s && s.removeAllRanges) s.removeAllRanges();} : $lambda(false);
+		// Based on http://stackoverflow.com/a/3169849/1671320
+		this.removeDOMSelection = function() {
+			if (window.getSelection) {
+				var s = window.getSelection();
+				if (s.empty) s.empty();  // Old Webkit
+				else if (s.removeAllRanges) s.removeAllRanges();  // IE9, FF and recent Webkit
+			} else if (document.selection && document.selection.empty) {
+				document.selection.empty();  // IE8 and below
+			}
+		};
 
 		this.resetCoords();		
 	},
