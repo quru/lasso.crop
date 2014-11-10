@@ -107,6 +107,13 @@ var Lasso = new Class({
 		this.resetCoords();		
 	},
 
+	destroy : function(){
+		this.detach();
+		this.mask.destroy();
+		this.overlay.destroy();
+		this.box.destroy();
+	},
+
 	attach : function(){
 		this.trigger.addEvent(this.isTouch ? 'touchstart' : 'mousedown', this.binds.start);
 	},
@@ -331,7 +338,13 @@ Lasso.Crop = new Class({
 		
 		this.setDefault();	
 	},
-	
+
+	destroy : function(){
+		this.container.destroy();
+		this.img.setStyle('display', '');
+		this.parent();
+	},
+
 	setDefault : function(){ 
 		if(!this.options.preset) return this.resetCoords();
 		this.getContainCoords();

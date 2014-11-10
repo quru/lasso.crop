@@ -55,6 +55,7 @@ Documentation
 ### Methods
 * attach - Attaches listeners
 * detach - Detaches all listeners
+* destroy - Removes the lasso component and restores the original image
 
 ### Events
 * start - Event fired when lasso begins
