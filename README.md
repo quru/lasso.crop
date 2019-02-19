@@ -4,7 +4,9 @@ Lasso.Crop
 This is an updated version of Nathan White's MooTools-based image cropping tool.
 The original code and a live demo can be found at: http://www.nwhite.net/2009/02/25/lassocrop-preview
 
-This version has been modified to upgrade it to MooTools 1.3+ (tested on MooTools 1.3.2, 1.4.5, and 1.5.1), a few bug fixes, and also to add basic support for touchscreen devices.
+This version has been modified to upgrade it to MooTools 1.3+ (tested on MooTools
+1.3.2, 1.4.5, 1.5.1, and 1.6.0), a few bug fixes, and also to add basic support
+for touchscreen devices.
 
 Example
 -------
